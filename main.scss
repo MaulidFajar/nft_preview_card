@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+$soft-blue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+$main-bg: hsl(217, 54%, 11%);
+$card: hsl(216, 50%, 16%);
+$dark-blue: hsl(215, 32%, 27%);
+$white: hsl(0, 0%, 100%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  background-color: $main-bg;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: $card;
+  width: 330px;
+  font-family: "Outfit", sans-serif;
+  padding: 1rem 1.4rem;
+
+  border-radius: 14px;
+
+  &__image-container {
+    position: relative;
+
+    &:hover {
+      .card__image--overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  &__image--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($color: $cyan, $alpha: 0.5);
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+  }
+
+  &__content {
+    margin-top: 14px;
+
+    .card__title {
+      color: $white;
+      font-size: 22px;
+
+      &:hover {
+        color: $cyan;
+        cursor: pointer;
+      }
+    }
+
+    .card__description {
+      color: $soft-blue;
+      font-weight: 300;
+      padding-right: 5px;
+      line-height: 22px;
+      margin: 10px 0;
+    }
+
+    .card__details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin: 15px 0;
+
+      .card__prize,
+      .card__time {
+        display: flex;
+        align-items: center;
+      }
+
+      .card__prize {
+        color: $cyan;
+
+        &-text {
+          margin-left: 6px;
+          font-weight: 600;
+        }
+      }
+
+      .card__time {
+        color: $soft-blue;
+
+        &-text {
+          margin-left: 6px;
+        }
+      }
+    }
+
+    hr {
+      border-color: $dark-blue;
+    }
+
+    .card__creator {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+
+      &-avatar {
+        width: 30px;
+        border: 1px solid $white;
+        border-radius: 100%;
+        margin-right: 15px;
+      }
+
+      &-text {
+        color: $soft-blue;
+      }
+      &-link {
+        color: $white;
+        text-decoration: none;
+
+        &:hover {
+          color: $cyan;
+        }
+      }
+    }
+  }
+}
